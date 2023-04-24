@@ -46,4 +46,58 @@ function square(number) {
      return number * number;
 }
 
-let square = square(2);
+let squareResult = square(2);
+alert.squareResult;
+
+// querySelector
+    // Selet first h1 element, and assign it to myHeading. Change myHeading to ...
+let myHeading = document.querySelector('h1');
+myHeading.textContent = 'Hello world!';
+    // Selet all h1 elements, can make them unchangable
+const headings = document.querySelectorAll('h1');
+headings.forEach((heading) => {
+    heading.textContent = 'Hello World!';
+});
+
+//Events
+    // add a EventListener to HTML. When click, it will call a function
+document.querySelector("html").addEventListener("click", function () {
+    alert("Got a click");
+  });
+
+// eg1: Adding an image changer (by modify atttibutes of a element)
+let myImage = document.querySelector("img");
+
+myImage.onclick = () => {
+  let mySrc = myImage.getAttribute("src");
+  if (mySrc === "images/images/1.jpeg") {
+    myImage.setAttribute("src", "images/2.jpeg");
+  } else {
+    myImage.setAttribute("src", "images/1.jpeg");
+  }
+};
+
+// proxy
+
+let myButton = document.querySelector("button");
+let welcomeHeading = document.querySelector("#welcom"); // specific id
+    // function
+function setUserName() {
+    const myName = prompt("Please enter your name.");
+    localStorage.setItem("name", myName);
+    welcomeHeading.textContent = `Welcome ${myName}`;
+  }
+    // Determine if localStorage have name, if not ask.
+if (!localStorage.getItem("name")) {
+    setUserName();
+} else {
+  const storedName = localStorage.getItem("name");
+  welcomeHeading.textContent = `Hello, ${storedName}`;
+}
+    //listen button
+myButton.onclick = () => {
+    setUserName();
+  };
+
+
+  
